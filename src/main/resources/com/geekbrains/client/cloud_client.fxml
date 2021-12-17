@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<GridPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.client.Controller">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ListView fx:id="clientFiles" layoutX="14.0" layoutY="40.0" prefHeight="345.0" prefWidth="244.0" />
+            <ListView fx:id="serverFiles" layoutX="323.0" layoutY="40.0" prefHeight="345.0" prefWidth="263.0" />
+            <Button layoutX="264.0" layoutY="67.0" mnemonicParsing="false" onAction="#upload" prefHeight="27.0" prefWidth="54.0" text="-&gt;" />
+            <Button layoutX="264.0" layoutY="112.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" text="&lt;-" />
+            <Label layoutX="107.0" layoutY="14.0" text="Client file's" />
+            <Label layoutX="426.0" layoutY="14.0" text="Server file's" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
