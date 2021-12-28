@@ -121,10 +121,6 @@ public class Controller implements Initializable {
         Platform.exit();
     }
 
-    public void label (){
-        clientDirLabel.setText(">>" + getFileNames());
-    }
-Label clientDirLabel;
 
 
     public void downLoad(ActionEvent actionEvent) throws IOException {
