@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="366.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutY="-5.0" prefHeight="281.0" prefWidth="370.0">
+         <children>
+            <Button ellipsisString="" layoutX="100.0" layoutY="210.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="47.0">
+               <graphic>
+                  <ImageView blendMode="MULTIPLY" fitHeight="48.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@png/return.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button ellipsisString="" layoutX="207.0" layoutY="210.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="46.0">
+               <graphic>
+                  <ImageView blendMode="MULTIPLY" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@png/ok.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label layoutX="14.0" layoutY="9.0" prefHeight="63.0" prefWidth="334.0" text="Сreate your own cloud.">
+               <font>
+                  <Font name="System Italic" size="23.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="53.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@png/clouds.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <TextField layoutX="207.0" layoutY="72.0" promptText="Enter new Login" />
+            <PasswordField layoutX="207.0" layoutY="124.0" promptText="Enter new password" />
+            <PasswordField layoutX="207.0" layoutY="176.0" promptText="Repeat password" />
+            <Label layoutX="139.0" layoutY="67.0" text="Login:">
+               <font>
+                  <Font name="System Italic" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="100.0" layoutY="119.0" text="Password:">
+               <font>
+                  <Font name="System Italic" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="171.0" text="Repeat password:">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
