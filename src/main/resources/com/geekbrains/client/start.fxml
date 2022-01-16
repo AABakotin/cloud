@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.client.controllers.ClientController">
+
+
+    <AnchorPane fx:id="authPanel" depthTest="DISABLE" pickOnBounds="false" prefHeight="645.0" prefWidth="753.0" style="-fx-background-color: #a3c4ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <AnchorPane layoutX="-7.0" prefHeight="200.0" prefWidth="762.0" style="-fx-background-color: #2E3348;">
+                <children>
+                    <Label layoutX="149.0" layoutY="50.0" prefHeight="101.0" prefWidth="465.0" text="Perfect Cloud" textFill="#fafafa">
+                        <font>
+                            <Font name="Impact" size="82.0" />
+                        </font>
+                    </Label>
+                    <Button fx:id="authSingUp_button" layoutX="614.0" layoutY="14.0" mnemonicParsing="false" onAction="#authSingUp" prefHeight="47.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-border-color: #2E3348; -fx-border-radius: 10;" text="Sing Up">
+                        <font>
+                            <Font name="Impact" size="24.0" />
+                        </font>
+                    </Button>
+                </children>
+            </AnchorPane>
+            <TextField fx:id="authLogin_field" alignment="CENTER" layoutX="233.0" layoutY="289.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your login" style="-fx-background-color: #FAFAFA; -fx-border-color: #2E3348; -fx-border-radius: 20; -fx-background-radius: 20;">
+                <font>
+                    <Font size="20.0" />
+                </font>
+                <effect>
+                    <ColorAdjust />
+                </effect>
+            </TextField>
+            <PasswordField fx:id="authPassword_field" alignment="CENTER" layoutX="233.0" layoutY="365.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </PasswordField>
+            <Button fx:id="authSingIn_button" ellipsisString="" layoutX="250.0" layoutY="474.0" mnemonicParsing="false" onAction="#singIn" prefHeight="104.0" prefWidth="254.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Sing In" textFill="#2e3348">
+                <font>
+                    <Font name="Impact" size="53.0" />
+                </font>
+            </Button>
+            <Label layoutX="269.0" layoutY="200.0" text="Welcome!">
+                <font>
+                    <Font name="Georgia Italic" size="49.0" />
+                </font>
+            </Label>
+         <Label fx:id="incorrect_label" layoutX="260.0" layoutY="434.0" text="Incorrect login and password." textAlignment="CENTER" textFill="RED" visible="false">
+            <font>
+               <Font name="Georgia" size="18.0" />
+            </font></Label>
+        </children>
+
+
+    </AnchorPane>
+
+
+    <AnchorPane fx:id="regPanel" blendMode="MULTIPLY" prefHeight="645.0" prefWidth="753.0" style="-fx-background-color: #a3c4ff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <TextField fx:id="regLogin_field" alignment="CENTER" layoutX="236.0" layoutY="290.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your login" style="-fx-background-color: #FAFAFA; -fx-border-color: #2E3348; -fx-border-radius: 20; -fx-background-radius: 20;">
+                <font>
+                    <Font size="20.0" />
+                </font>
+                <effect>
+                    <ColorAdjust />
+                </effect>
+            </TextField>
+            <PasswordField fx:id="regPassword_field1" alignment="CENTER" layoutX="236.0" layoutY="360.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </PasswordField>
+            <AnchorPane layoutX="-4.0" prefHeight="200.0" prefWidth="762.0" style="-fx-background-color: #2E3348;">
+                <children>
+                    <Label layoutX="149.0" layoutY="50.0" prefHeight="101.0" prefWidth="465.0" text="Perfect Cloud" textFill="#fafafa">
+                        <font>
+                            <Font name="Impact" size="82.0" />
+                        </font>
+                    </Label>
+                    <Button fx:id="regReturn_button" layoutX="618.0" layoutY="11.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-border-color: #2E3348; -fx-border-radius: 10;" text="Return">
+                        <font>
+                            <Font name="Impact" size="24.0" />
+                        </font>
+                    </Button>
+                </children>
+            </AnchorPane>
+            <PasswordField fx:id="regPassword_field2" alignment="CENTER" layoutX="236.0" layoutY="432.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </PasswordField>
+            <Label layoutX="250.0" layoutY="200.0" text="Registration" textFill="#2e3348">
+                <font>
+                    <Font name="Georgia Italic" size="49.0" />
+                </font>
+            </Label>
+            <Button fx:id="regSignIn_button" ellipsisString="" layoutX="250.0" layoutY="508.0" mnemonicParsing="false" onAction="#registration" prefHeight="104.0" prefWidth="254.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Sing Up" textFill="#2e3348">
+                <font>
+                    <Font name="Impact" size="53.0" />
+                </font>
+            </Button>
+         <Label fx:id="loginAlready_label" layoutX="290.0" layoutY="256.0" text="Login is Already." textFill="RED" visible="false">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         <Label fx:id="passwordMatch_label" layoutX="254.0" layoutY="256.0" text="Passwords must match." textFill="RED" visible="false">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         <Label fx:id="loginEmpty_label" layoutX="228.0" layoutY="256.0" text="The login cannot be empty. " textFill="RED" visible="false">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+        </children>
+        <opaqueInsets>
+            <Insets />
+        </opaqueInsets>
+    </AnchorPane>
+
+
+    <AnchorPane fx:id="changePswPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="753.0" style="-fx-background-color: #a3c4ff;" visible="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <AnchorPane prefHeight="200.0" prefWidth="762.0" style="-fx-background-color: #2E3348;">
+                <children>
+                    <Label layoutX="149.0" layoutY="50.0" prefHeight="101.0" prefWidth="465.0" text="Perfect Cloud" textFill="#fafafa">
+                        <font>
+                            <Font name="Impact" size="82.0" />
+                        </font>
+                    </Label>
+                    <Button fx:id="changeReturn_button" layoutX="618.0" layoutY="11.0" mnemonicParsing="false" onAction="#returnToClient" prefHeight="47.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-border-color: #2E3348; -fx-border-radius: 10;" text="Return">
+                        <font>
+                            <Font name="Impact" size="24.0" />
+                        </font>
+                    </Button>
+                </children>
+            </AnchorPane>
+            <PasswordField fx:id="changePassword_field1" alignment="CENTER" layoutX="228.0" layoutY="305.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your new password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </PasswordField>
+            <PasswordField fx:id="changePassword_field2" alignment="CENTER" layoutX="228.0" layoutY="386.0" prefHeight="47.0" prefWidth="282.0" promptText="Retry your new password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </PasswordField>
+            <Label layoutX="171.0" layoutY="209.0" text="Change password">
+                <font>
+                    <Font name="Georgia Italic" size="49.0" />
+                </font>
+            </Label>
+            <Button fx:id="changeOK_button" ellipsisString="" layoutX="242.0" layoutY="475.0" mnemonicParsing="false" onAction="#singIn" prefHeight="104.0" prefWidth="254.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Change" textFill="#2e3348">
+                <font>
+                    <Font name="Impact" size="53.0" />
+                </font>
+            </Button>
+        </children>
+    </AnchorPane>
+
+
+    <AnchorPane fx:id="client" prefHeight="645.0" prefWidth="753.0" style="-fx-background-color: #a3c4ff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <TableView fx:id="clientFiles" layoutX="6.0" layoutY="147.0" prefHeight="470.0" prefWidth="369.0" />
+            <TableView fx:id="serverFiles" layoutX="380.0" layoutY="147.0" prefHeight="470.0" prefWidth="369.0" />
+            <Label layoutX="143.0" layoutY="617.0" text="Client files" textFill="#2e3348">
+                <font>
+                    <Font name="Georgia Italic" size="20.0" />
+                </font>
+            </Label>
+            <Button fx:id="FolderBackClient_button" ellipsisString="" layoutX="23.0" layoutY="62.0" mnemonicParsing="false" onAction="#folderUP" prefHeight="46.0" prefWidth="51.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+                <font>
+                    <Font name="Impact" size="21.0" />
+                </font>
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@png/FolderUP.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="upLoadFiles_button" ellipsisString="" layoutX="156.0" layoutY="64.0" mnemonicParsing="false" onAction="#upload" prefHeight="39.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+                <font>
+                    <Font name="Impact" size="21.0" />
+                </font>
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@png/Upload.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="downloadFiles_button" ellipsisString="" layoutX="530.0" layoutY="64.0" mnemonicParsing="false" onAction="#downLoad" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+                <font>
+                    <Font name="Impact" size="21.0" />
+                </font>
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@png/Download.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <AnchorPane layoutY="-3.0" prefHeight="47.0" prefWidth="753.0" style="-fx-background-color: #2E3348;">
+                <children>
+                    <Label layoutX="263.0" prefHeight="56.0" prefWidth="227.0" text="Perfect Cloud" textFill="#fafafa">
+                        <font>
+                            <Font name="Impact" size="40.0" />
+                        </font>
+                    </Label>
+                    <Button fx:id="changePassword_button" ellipsisString="" layoutX="575.0" layoutY="5.0" mnemonicParsing="false" onAction="#changePass" prefHeight="46.0" prefWidth="157.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Change password" textFill="#2e3348">
+                        <font>
+                            <Font name="Impact" size="16.0" />
+                        </font>
+                    </Button>
+                </children>
+            </AnchorPane>
+            <Label layoutX="514.0" layoutY="617.0" text="Server files" textFill="#2e3348">
+                <font>
+                    <Font name="Georgia Italic" size="20.0" />
+                </font>
+            </Label>
+            <Label fx:id="filePathClient_label" layoutX="6.0" layoutY="125.0" prefHeight="21.0" prefWidth="369.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;">
+                <font>
+                    <Font size="15.0" />
+                </font>
+            </Label>
+            <Label fx:id="filePathServer_label" layoutX="380.0" layoutY="125.0" prefHeight="21.0" prefWidth="369.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;">
+                <font>
+                    <Font size="15.0" />
+                </font>
+            </Label>
+            <Button fx:id="FolderBackServer_button" ellipsisString="" layoutX="380.0" layoutY="66.0" mnemonicParsing="false" onAction="#singIn" prefHeight="46.0" prefWidth="51.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+                <font>
+                    <Font name="Impact" size="21.0" />
+                </font>
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@png/FolderUP.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </children>
+    </AnchorPane>
+
+</AnchorPane>
