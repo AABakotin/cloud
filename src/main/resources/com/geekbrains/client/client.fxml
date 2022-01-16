@@ -6,7 +6,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane blendMode="DARKEN" depthTest="DISABLE" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="732.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.client.Controller">
+<AnchorPane blendMode="DARKEN" depthTest="DISABLE" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="732.0" prefWidth="1003.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.geekbrains.client.controllers.ClientController">
    <HBox alignment="CENTER" layoutY="59.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1003.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0">
       <children>
          <Separator orientation="VERTICAL" prefHeight="650.0" prefWidth="15.0" />
@@ -27,7 +30,7 @@
          <VBox alignment="CENTER" prefHeight="472.0" prefWidth="72.0">
             <children>
                <Separator prefHeight="22.0" prefWidth="72.0" />
-               <Button ellipsisString="" mnemonicParsing="false" onAction="#downLoad" prefHeight="105.0" prefWidth="66.0" VBox.vgrow="ALWAYS">
+               <Button fx:id="download_button" onAction="#downLoad" ellipsisString="" mnemonicParsing="false" prefHeight="105.0" prefWidth="66.0" VBox.vgrow="ALWAYS">
                   <graphic>
                      <ImageView accessibleRole="BUTTON" blendMode="MULTIPLY" fitHeight="95.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -37,7 +40,7 @@
                   </graphic>
                </Button>
                <Separator prefHeight="30.0" prefWidth="72.0" />
-               <Button ellipsisString="" mnemonicParsing="false" onAction="#upload" prefHeight="105.0" prefWidth="65.0" VBox.vgrow="ALWAYS">
+               <Button fx:id="upload_button" onAction="#upload" ellipsisString="" mnemonicParsing="false" prefHeight="105.0" prefWidth="65.0" VBox.vgrow="ALWAYS">
                   <graphic>
                      <ImageView accessibleRole="BUTTON" blendMode="MULTIPLY" fitHeight="95.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -50,7 +53,7 @@
                   </VBox.margin>
                </Button>
                <Separator prefHeight="33.0" prefWidth="72.0" />
-               <Button mnemonicParsing="false" prefHeight="105.0" prefWidth="65.0" VBox.vgrow="ALWAYS">
+               <Button fx:id="delete_button" onAction="#deleteFile" mnemonicParsing="false" prefHeight="105.0" prefWidth="65.0" VBox.vgrow="ALWAYS">
                   <graphic>
                      <ImageView blendMode="MULTIPLY" fitHeight="56.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -84,7 +87,7 @@
            <menus>
              <Menu mnemonicParsing="false" text="File">
                <items>
-                 <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exit" text="Close" />
+                 <MenuItem fx:id="exit" mnemonicParsing="false"  text="Close" />
                </items>
              </Menu>
              <Menu mnemonicParsing="false" text="Edit">

@@ -1,5 +1,6 @@
 package com.geekbrains.netty;
 
+import com.geekbrains.netty.db.DataBaseHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -9,6 +10,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
+
 @Slf4j
 public class NettyServer {
 
@@ -17,7 +19,9 @@ public class NettyServer {
         HandlerProvider provider = new HandlerProvider(nameService, new ContextStoreService());
         EventLoopGroup auth = new NioEventLoopGroup(1);
         EventLoopGroup worker = new NioEventLoopGroup();
+
         try {
+            DataBaseHandler.dbConnection();
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(auth, worker)
                     .channel(NioServerSocketChannel.class)
@@ -31,12 +35,13 @@ public class NettyServer {
                     });
             ChannelFuture future = bootstrap.bind(8189).sync();
             log.debug("Server started...");
-            future.channel().closeFuture().sync(); // block
+            future.channel().closeFuture().sync();
         } catch (Exception e) {
             log.error("e=", e);
         } finally {
             auth.shutdownGracefully();
             worker.shutdownGracefully();
+            DataBaseHandler.closeConnection();
         }
     }
 }
