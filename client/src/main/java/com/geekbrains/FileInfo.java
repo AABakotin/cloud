@@ -27,8 +27,8 @@ public class FileInfo {
         fileName = path.getFileName().toString();
         isDirectory = Files.isDirectory(path);
         if (!isDirectory) {
-            itemSize = path.toFile().length();
             type = "File";
+            itemSize = path.toFile().length();
         } else {
             type = "DIR";
             itemSize = -1;
