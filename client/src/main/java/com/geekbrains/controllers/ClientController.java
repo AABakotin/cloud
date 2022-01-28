@@ -13,7 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 import java.awt.*;
 import java.io.File;
@@ -22,12 +24,13 @@ import java.net.Socket;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.nio.file.Paths.get;
 
 public class ClientController implements Initializable {
 
@@ -67,56 +70,42 @@ public class ClientController implements Initializable {
     public Label loginEmpty_label;
     public Label regNoConnection_label;
     public Label authNoConnection_label;
+    public ChoiceBox<File> listHards_box;
+    public Button deleteItemsServer_button;
+    public Button createNewFolderClient_button;
+    public Button createNewFolderServer_button;
+    public Button deleteItemsClient_button;
+    public TextField nameFolderServer_field;
+    public TextField nameFolder_field;
+    public Button nameFolder_button;
+    public Pane nameFolder_panel;
+    public Pane nameFolderServer_panel;
+    public Button nameFolderServer_button;
     private Path baseDir;
     private ObjectDecoderInputStream is;
     private ObjectEncoderOutputStream os;
     private final String DEFAULT_DIR = "user.home";
     private Path locationPath;
+    private final File[] file = File.listRoots();
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         authPanel.setVisible(true);
+        listHards_box.getItems().addAll(file);
+        listHards_box.setValue(file[0]);
 
 
 // Client ViewTable
 
-//        TableColumn<FileInfo, String> typeFilesClient = new TableColumn<>("Type");
-//        typeFilesClient.setCellValueFactory(e ->
-//                new SimpleStringProperty(e.getValue()
-//                        .getType()));
-//        typeFilesClient.setPrefWidth(40);
-//        typeFilesClient.setCellFactory(column -> {
-//            return new TableCell<FileInfo, String>() {
-//                protected void updateItem(String item, boolean empty) {
-//                    super.updateItem(item, empty);
-//                    if (item == null || empty) {
-//                        setText(null);
-//                        setGraphic(null);
-//                    } else if (item.equals("File")) {
-//                        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("file:/png/file.png")));
-//                        ImageView imageView = new ImageView(image);
-//                        setGraphic(imageView);
-//                    } else if (item.equals("DIR")) {
-//                        setGraphic(new ImageView(new Image("file:/png/folder.png")));
-//                    }
-//                }
-//            };
-//        });
-//
-//        clientFiles.getColumns().add(typeFilesClient);
-
         TableColumn<FileInfo, String> nameFilesClient = new TableColumn<>("Name");
         nameFilesClient.setCellValueFactory(e -> new
-
                 SimpleStringProperty(e.getValue().
-
                 getFileName()));
         nameFilesClient.setPrefWidth(130);
-
         clientFiles.getColumns().
                 add(nameFilesClient);
-
         TableColumn<FileInfo, Long> sizeFilesClient = new TableColumn<>("Size");
         sizeFilesClient.setCellValueFactory(e -> new SimpleObjectProperty<>(e.getValue().getItemSize()));
         sizeFilesClient.setPrefWidth(100);
@@ -158,45 +147,15 @@ public class ClientController implements Initializable {
 
 // Server ViewTable
 
-//        TableColumn<File, File> typeFilesServer = new TableColumn<>("Type");
-//        typeFilesServer.setCellValueFactory(e ->
-//                new SimpleObjectProperty<File>(e.getValue()));
-//        typeFilesServer.setPrefWidth(40);
-//        typeFilesServer.setCellFactory(column ->
-//
-//        {
-//            return new TableCell<File, File>() {
-//                protected void updateItem(File item, boolean empty) {
-//                    super.updateItem(item, empty);
-//                    if (item == null || empty) {
-//                        setText(null);
-//                        setGraphic(null);
-//                    } else if (item.equals("File")) {
-//                        setGraphic(new ImageView(new Image("file:/png/file.png")));
-//                    } else if (item.equals("DIR")) {
-//                        setGraphic(new ImageView(new Image("file:/png/folder.png")));
-//                    }
-//                }
-//            };
-//        });
-//
-//        serverFiles.getColumns().
-//
-//                add(typeFilesServer);
-
         TableColumn<File, String> nameFilesServer = new TableColumn<>("Name");
         nameFilesServer.setCellValueFactory(e -> new
                 SimpleStringProperty(e.getValue().
                 getName()));
         nameFilesServer.setPrefWidth(130);
-
         serverFiles.getColumns().
                 add(nameFilesServer);
-
-
         TableColumn<File, Long> sizeFilesServer = new TableColumn<>("Size");
         sizeFilesServer.setCellValueFactory(e -> new SimpleObjectProperty<>(e.getValue().
-
                 length()));
         sizeFilesServer.setPrefWidth(100);
         sizeFilesServer.setCellFactory(column -> {
@@ -245,10 +204,9 @@ public class ClientController implements Initializable {
 
         serverFiles.getColumns().
                 add(modFilesServer);
-
-
         try {
-            baseDir = Paths.get(System.getProperty(DEFAULT_DIR));
+
+            baseDir = get(System.getProperty(DEFAULT_DIR));
             filePathClient_label.setText(baseDir.toString());
             clientFiles.getItems().addAll(getClientFiles());
             clientFiles.setOnMouseClicked(e -> {
@@ -266,7 +224,6 @@ public class ClientController implements Initializable {
                             client.setVisible(false);
                             client.setVisible(true);
                             alert.showAndWait();
-
                         }
                     } else {
                         File selectedFile = new File(path.toString());
@@ -355,7 +312,7 @@ public class ClientController implements Initializable {
                         AuthenticationOK authenticationOK = (AuthenticationOK) msg;
                         authPanel.setVisible(false);
                         client.setVisible(true);
-                        locationPath = Paths.get(authenticationOK.getLocationPath());
+                        locationPath = get(authenticationOK.getLocationPath());
                         break;
                     case REGISTRATION_ERROR:
                         RegistrationError error = (RegistrationError) msg;
@@ -432,14 +389,6 @@ public class ClientController implements Initializable {
     }
 
 
-    public void deleteFile(ActionEvent actionEvent) throws IOException {
-        FileInfo fileInfo = clientFiles.getSelectionModel()
-                .getSelectedItem();
-        if (!fileInfo.isDirectory()) {
-            Files.delete(baseDir.resolve(fileInfo.getFileName()));
-        }
-        fillClientView(getClientFiles());
-    }
 
     public void authSingUp(ActionEvent actionEvent) {
         authLogin_field.clear();
@@ -501,23 +450,20 @@ public class ClientController implements Initializable {
     }
 
     public void folderUpClient(ActionEvent actionEvent) throws IOException {
-        try {
-            Path pathUp = Paths.get(filePathClient_label.getText()).getParent();
-            baseDir = pathUp;
+        Path parents = get(filePathClient_label.getText()).getParent();
+        if (parents != null) {
+            baseDir = parents;
             fillClientView(getClientFiles());
-        } catch (RuntimeException e) {
-            System.err.println("Пока не реализованно переход по дискам!");
         }
     }
 
     public void folderUpServer(ActionEvent actionEvent) {
-       Path pathUP = Paths.get(filePathServer_label.getText()).getParent();
-       Path path = Paths.get(locationPath.toString());
-        if (pathUP.compareTo(path) >= 0) {
+        Path parent = get(filePathServer_label.getText()).getParent().getParent();
+        if (parent != null) {
             try {
-                locationPath = pathUP;
-                fillServerView(getServerFiles(locationPath));
+                locationPath = get(filePathServer_label.getText()).getParent();
                 os.writeObject(new RequestFolder(locationPath.toString()));
+                fillServerView(getServerFiles(locationPath));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -536,6 +482,82 @@ public class ClientController implements Initializable {
     }
 
 
+    public void navigationDisk(MouseEvent mouseEvent) {
+        if (!listHards_box.getSelectionModel().isEmpty()) {
+            baseDir = listHards_box.getSelectionModel().getSelectedItem().toPath();
+            try {
+                fillClientView(getClientFiles());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+    }
+
+    public void deleteItemsClient(ActionEvent actionEvent) {
+        if (clientFiles.getSelectionModel().getSelectedItem() != null) {
+            try {
+                Files.delete(baseDir.resolve(clientFiles.getSelectionModel()
+                        .getSelectedItem().getFileName()));
+                fillClientView(getClientFiles());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void createNewFolderServer(ActionEvent actionEvent) {
+        String nameFolder = nameFolderServer_field.getText();
+        if (nameFolderServer_field.getText().isEmpty()) {
+            nameFolder = "New Folder";
+        }
+        try {
+            os.writeObject(new CreateFolder(nameFolder));
+            nameFolderServer_field.clear();
+            nameFolderServer_panel.setVisible(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void visibleNamePanel() {
+        nameFolder_panel.setVisible(true);
+    }
+
+    public void createFolderClient(ActionEvent actionEvent) {
+        nameFolder_panel.setVisible(true);
+        String name = nameFolder_field.getText();
+        if (name.isEmpty()) {
+            name = "new folder";
+        }
+        new File(baseDir + "/" + name).mkdirs();
+        try {
+            fillClientView(getClientFiles());
+            nameFolder_field.clear();
+            nameFolder_panel.setVisible(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteItemsServer(ActionEvent actionEvent) {
+        if (serverFiles.getSelectionModel().getSelectedItem() != null) {
+            try {
+                os.writeObject(new DeleteFile(serverFiles.getSelectionModel()
+                        .getSelectedItem().getName()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public void visibleNamePanelServer(ActionEvent actionEvent) {
+        nameFolderServer_panel.setVisible(true);
+    }
 }
 
 

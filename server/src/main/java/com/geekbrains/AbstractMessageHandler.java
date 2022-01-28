@@ -33,9 +33,7 @@ public class AbstractMessageHandler extends SimpleChannelInboundHandler<Abstract
         switch (message.getMessageType()) {
             case FILE_REQUEST:
                 FileRequest req = (FileRequest) message;
-                ctx.writeAndFlush(
-                        new FileMessage(locationPath.resolve(req.getFileName()))
-                );
+                ctx.writeAndFlush(new FileMessage(locationPath.resolve(req.getFileName())));
                 break;
             case FILE:
                 FileMessage fileMessage = (FileMessage) message;
@@ -62,7 +60,7 @@ public class AbstractMessageHandler extends SimpleChannelInboundHandler<Abstract
                 if (DataBaseHandler.getLogin(add.getLogin()) == null) {
                     locationPath = Paths.get(currentPath + "/" + add.getLogin());
                     DataBaseHandler.addNewUser(add.getLogin(), add.getPassword(), locationPath.toString());
-                    new File(locationPath.toString()).mkdirs();
+                    new File(currentPath + "/" + add.getLogin()).mkdirs();
                     ctx.writeAndFlush(new AuthenticationOK(locationPath.toString()));
                     ctx.writeAndFlush(new FilesList(Paths.get(Objects.requireNonNull(DataBaseHandler.getLocation(add.getLogin(), add.getPassword())))));
                 } else {
@@ -74,6 +72,17 @@ public class AbstractMessageHandler extends SimpleChannelInboundHandler<Abstract
                 RequestFolder rf = (RequestFolder) message;
                 locationPath = Paths.get(rf.getFolder());
                 break;
+            case DELETE_FILE:
+                DeleteFile del = (DeleteFile) message;
+                Files.delete(locationPath.resolve(del.getName()));
+                ctx.writeAndFlush(new FilesList(locationPath));
+                break;
+            case CREATE_FOLDER:
+                CreateFolder cr = (CreateFolder) message;
+                new File(locationPath.toString() + "/" + cr.getName()).mkdirs();
+                ctx.writeAndFlush(new FilesList(locationPath));
+                break;
+
 //
 //                        USER_PASSWORD_CHANGE
         }

@@ -79,6 +79,16 @@
                     <Font size="20.0" />
                 </font>
             </PasswordField>
+            <PasswordField fx:id="regPassword_field2" alignment="CENTER" layoutX="236.0" layoutY="432.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </PasswordField>
+            <Button fx:id="regSignIn_button" ellipsisString="" layoutX="250.0" layoutY="508.0" mnemonicParsing="false" onAction="#registration" prefHeight="104.0" prefWidth="254.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Sing Up" textFill="#2e3348">
+                <font>
+                    <Font name="Impact" size="53.0" />
+                </font>
+            </Button>
             <AnchorPane layoutX="-4.0" prefHeight="200.0" prefWidth="762.0" style="-fx-background-color: #2E3348;">
                 <children>
                     <Label layoutX="149.0" layoutY="50.0" prefHeight="101.0" prefWidth="465.0" text="Perfect Cloud" textFill="#fafafa">
@@ -93,21 +103,11 @@
                     </Button>
                 </children>
             </AnchorPane>
-            <PasswordField fx:id="regPassword_field2" alignment="CENTER" layoutX="236.0" layoutY="432.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
-                <font>
-                    <Font size="20.0" />
-                </font>
-            </PasswordField>
             <Label layoutX="250.0" layoutY="200.0" text="Registration" textFill="#2e3348">
                 <font>
                     <Font name="Georgia Italic" size="49.0" />
                 </font>
             </Label>
-            <Button fx:id="regSignIn_button" ellipsisString="" layoutX="250.0" layoutY="508.0" mnemonicParsing="false" onAction="#registration" prefHeight="104.0" prefWidth="254.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Sing Up" textFill="#2e3348">
-                <font>
-                    <Font name="Impact" size="53.0" />
-                </font>
-            </Button>
          <Label fx:id="loginAlready_label" layoutX="290.0" layoutY="256.0" text="Login is Already." textFill="RED" visible="false">
             <font>
                <Font size="24.0" />
@@ -175,7 +175,7 @@
     </AnchorPane>
 
 
-    <AnchorPane fx:id="client" prefHeight="645.0" prefWidth="753.0" style="-fx-background-color: #a3c4ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <AnchorPane fx:id="client" prefHeight="645.0" prefWidth="753.0" style="-fx-background-color: #a3c4ff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
             <TableView fx:id="clientFiles" layoutX="6.0" layoutY="147.0" prefHeight="470.0" prefWidth="369.0" />
             <TableView fx:id="serverFiles" layoutX="380.0" layoutY="147.0" prefHeight="470.0" prefWidth="369.0" />
@@ -184,7 +184,7 @@
                     <Font name="Georgia Italic" size="20.0" />
                 </font>
             </Label>
-            <Button fx:id="FolderBackClient_button" ellipsisString="" layoutX="23.0" layoutY="66.0" mnemonicParsing="false" onAction="#folderUpClient" prefHeight="46.0" prefWidth="51.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+            <Button fx:id="FolderBackClient_button" ellipsisString="" layoutX="27.0" layoutY="65.0" mnemonicParsing="false" onAction="#folderUpClient" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
                 <font>
                     <Font name="Impact" size="21.0" />
                 </font>
@@ -196,7 +196,7 @@
                </ImageView>
             </graphic>
             </Button>
-            <Button fx:id="upLoadFiles_button" ellipsisString="" layoutX="95.0" layoutY="66.0" mnemonicParsing="false" onAction="#upload" prefHeight="39.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+            <Button fx:id="upLoadFiles_button" ellipsisString="" layoutX="111.0" layoutY="68.0" mnemonicParsing="false" onAction="#upload" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
                 <font>
                     <Font name="Impact" size="21.0" />
                 </font>
@@ -208,7 +208,7 @@
                </ImageView>
             </graphic>
             </Button>
-            <Button fx:id="downloadFiles_button" ellipsisString="" layoutX="453.0" layoutY="66.0" mnemonicParsing="false" onAction="#downLoad" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+            <Button fx:id="downloadFiles_button" ellipsisString="" layoutX="482.0" layoutY="68.0" mnemonicParsing="false" onAction="#downLoad" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
                 <font>
                     <Font name="Impact" size="21.0" />
                 </font>
@@ -239,17 +239,17 @@
                     <Font name="Georgia Italic" size="20.0" />
                 </font>
             </Label>
-            <Label fx:id="filePathClient_label" layoutX="6.0" layoutY="125.0" prefHeight="21.0" prefWidth="369.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;">
+            <Label fx:id="filePathClient_label" layoutX="47.0" layoutY="121.0" prefHeight="27.0" prefWidth="328.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Label>
-            <Label fx:id="filePathServer_label" layoutX="380.0" layoutY="125.0" prefHeight="21.0" prefWidth="369.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;">
+            <Label fx:id="filePathServer_label" layoutX="380.0" layoutY="121.0" prefHeight="27.0" prefWidth="369.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Label>
-            <Button fx:id="FolderBackServer_button" ellipsisString="" layoutX="380.0" layoutY="66.0" mnemonicParsing="false" onAction="#folderUpServer" prefHeight="46.0" prefWidth="51.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+            <Button fx:id="FolderBackServer_button" ellipsisString="" layoutX="393.0" layoutY="66.0" mnemonicParsing="false" onAction="#folderUpServer" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
                 <font>
                     <Font name="Impact" size="21.0" />
                 </font>
@@ -261,6 +261,67 @@
                </ImageView>
             </graphic>
             </Button>
+         <ChoiceBox fx:id="listHards_box" accessibleText="..." layoutX="6.0" layoutY="121.0" onMouseClicked="#navigationDisk" prefHeight="25.0" prefWidth="42.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;" />
+         <Button fx:id="deleteItemsClient_button" ellipsisString="" layoutX="285.0" layoutY="65.0" mnemonicParsing="false" onAction="#deleteItemsClient" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+            <font>
+               <Font name="Impact" size="21.0" />
+            </font>
+            <graphic>
+               <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@png/delete.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button fx:id="createNewFolderServer_button" ellipsisString="" layoutX="571.0" layoutY="66.0" mnemonicParsing="false" onAction="#visibleNamePanelServer" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+            <font>
+               <Font name="Impact" size="21.0" />
+            </font>
+            <graphic>
+               <ImageView blendMode="DARKEN" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@png/createFolder.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button fx:id="createNewFolderClient_button" ellipsisString="" layoutX="197.0" layoutY="65.0" mnemonicParsing="false" onAction="#visibleNamePanel" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+            <font>
+               <Font name="Impact" size="21.0" />
+            </font>
+            <graphic>
+               <ImageView blendMode="COLOR_BURN" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@png/createFolder.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button fx:id="deleteItemsServer_button" ellipsisString="" layoutX="661.0" layoutY="65.0" mnemonicParsing="false" onAction="#deleteItemsServer" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
+            <font>
+               <Font name="Impact" size="21.0" />
+            </font>
+            <graphic>
+               <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@png/delete.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Pane fx:id="nameFolder_panel" layoutX="280.0" layoutY="175.0" prefHeight="112.0" prefWidth="200.0" style="-fx-background-color: #a3c4ff;" visible="false">
+            <children>
+               <TextField fx:id="nameFolder_field" layoutX="26.0" layoutY="26.0" promptText="Enter name" />
+               <Button fx:id="nameFolder_button" layoutX="84.0" layoutY="73.0" mnemonicParsing="false" onAction="#createFolderClient" text="OK" />
+            </children>
+         </Pane>
+         <Pane fx:id="nameFolderServer_panel" layoutX="290.0" layoutY="185.0" prefHeight="112.0" prefWidth="200.0" style="-fx-background-color: #a3c4ff;" visible="false">
+            <children>
+               <TextField fx:id="nameFolderServer_field" layoutX="26.0" layoutY="26.0" promptText="Enter name" />
+               <Button fx:id="nameFolderServer_button" layoutX="84.0" layoutY="73.0" mnemonicParsing="false" onAction="#createNewFolderServer" text="OK" />
+            </children>
+         </Pane>
         </children>
     </AnchorPane>
 

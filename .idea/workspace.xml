@@ -4,65 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f0c3f5e-286a-46a2-9043-cb53927f09aa" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/test/1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/test/stats.DayZ.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/test/Триггер шмитта.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4f0c3f5e-286a-46a2-9043-cb53927f09aa" name="Changes" comment="module">
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/createFolder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/CreateFolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/FileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/FileInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/file.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/folder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/start.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/clients.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/clients.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/client/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/client/FileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/FileInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/client/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/AbstractMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AbstractMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/AuthenticationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AuthenticationError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/AuthenticationOK.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AuthenticationOK.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/FileMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/FileMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/FileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/FileRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/FilesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/FilesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/RegistrationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/RegistrationError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/RequestFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/RequestFolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/netty/AbstractMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/netty/ContextStoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/ContextStoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/netty/HandlerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/HandlerProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/netty/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/NettyServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/netty/StringMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/StringMessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/netty/UserNameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/UserNameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/netty/db/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/netty/db/DataBaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/DataBaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/change_pass.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/client.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/AarrowLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/AarrowRigth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/Account-Login-Button-PNG-Clipart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/Download.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/Download.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/FolderUP.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/FolderUP.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/Rigth.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/Upload.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/Upload.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/Welcome.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/Welcome.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/clouds.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/delete.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/file.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/file.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/folder.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/folder.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/login_line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/ok.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/recycle.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/png/return.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/regPanel.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geekbrains/client/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/start.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Commands.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refresh_code" />
+        <entry key="$PROJECT_DIR$" value="update" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -125,10 +80,11 @@
       <recent name="E:\Java\cloud-dec-2-2021\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Java\cloud-dec-2-2021\client\src\main\resources" />
+      <recent name="E:\Java\cloud-dec-2-2021\client\src\main\resources\com\geekbrains" />
       <recent name="E:\Java\cloud-dec-2-2021\server\src\main\resources" />
       <recent name="E:\Java\cloud-dec-2-2021\client\src\main\resources\com.geekbrains.client" />
       <recent name="E:\Java\cloud-dec-2-2021\client\src\main\resources\png" />
-      <recent name="E:\Java\cloud-dec-2-2021\client\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -206,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642347742839</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="module">
+      <created>1642847634402</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642847634402</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,7 +186,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="module" />
+    <option name="LAST_COMMIT_MESSAGE" value="module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
