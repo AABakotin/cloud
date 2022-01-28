@@ -8,6 +8,9 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.serialization.ClassResolvers;
+import io.netty.handler.codec.serialization.ObjectDecoder;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,8 +21,6 @@ public class NettyServer {
 
 
     public static void main(String[] args) {
-        UserNameService nameService = new UserNameService();
-        HandlerProvider provider = new HandlerProvider(nameService, new ContextStoreService());
         EventLoopGroup auth = new NioEventLoopGroup(1);
         EventLoopGroup worker = new NioEventLoopGroup();
         try {
@@ -29,10 +30,12 @@ public class NettyServer {
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        protected void initChannel(SocketChannel channel) throws Exception {
-                            channel.pipeline().addLast(
-                                    provider.getSerializePipeline()
-                            );
+                        protected void initChannel(SocketChannel socketChannel) throws Exception {
+                            socketChannel.pipeline().addLast(
+                                    new ObjectDecoder(50 * 1024 * 1024,
+                                            ClassResolvers.cacheDisabled(null)),
+                                    new ObjectEncoder(),
+                                    new AbstractMessageHandler());
                         }
                     });
             ChannelFuture future = bootstrap.bind(8189).sync();

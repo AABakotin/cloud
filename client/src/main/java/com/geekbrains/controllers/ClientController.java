@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -35,9 +34,6 @@ import static java.nio.file.Paths.get;
 public class ClientController implements Initializable {
 
 
-    public Button download_button;
-    public Button upload_button;
-    public Button delete_button;
     public AnchorPane authPanel;
     public AnchorPane regPanel;
     public AnchorPane changePswPanel;
@@ -54,8 +50,6 @@ public class ClientController implements Initializable {
     public PasswordField regPassword_field2;
     public Button regSignIn_button;
     public Button changeReturn_button;
-    public PasswordField changePassword_field1;
-    public PasswordField changePassword_field2;
     public Button changeOK_button;
     public Button FolderBackClient_button;
     public Button upLoadFiles_button;
@@ -81,13 +75,25 @@ public class ClientController implements Initializable {
     public Pane nameFolder_panel;
     public Pane nameFolderServer_panel;
     public Button nameFolderServer_button;
+    public PasswordField changeOldPassword_field;
+    public TextField changeLogin_field;
+    public PasswordField changeNewPassword_field;
+    public Label changeEmptyField_label;
+    public Button changeDeleteAccount_button;
+    public Label changePasswordNotChang_label;
+    public AnchorPane deleteAccount_panel;
+    public Button delete_button;
+    public Button deleteReturn_button;
+    public TextField deleteAccLogin_field;
+    public PasswordField deleteAccPassword_field;
+    public Label deleteEmptyField_label;
+    public Label deleteErrorField_label;
     private Path baseDir;
     private ObjectDecoderInputStream is;
     private ObjectEncoderOutputStream os;
     private final String DEFAULT_DIR = "user.home";
     private Path locationPath;
     private final File[] file = File.listRoots();
-
 
 
     @Override
@@ -283,7 +289,7 @@ public class ClientController implements Initializable {
             while (true) {
                 AbstractMessage msg = (AbstractMessage) is.readObject();
                 switch (msg.getMessageType()) {
-                    case FILE_MESSAGE:
+                    case FILE:
                         FileMessage fileMessage = (FileMessage) msg;
                         Files.write(
                                 baseDir.resolve(fileMessage.getFileName()),
@@ -324,6 +330,36 @@ public class ClientController implements Initializable {
                         regPassword_field2.clear();
                         regLogin_field.clear();
                         break;
+                    case CHANGE_PASSWORD_OK:
+                        changeEmptyField_label.setVisible(false);
+                        changePasswordNotChang_label.setVisible(false);
+                        changeLogin_field.clear();
+                        changeNewPassword_field.clear();
+                        changeOldPassword_field.clear();
+                        changePswPanel.setVisible(false);
+                        client.setVisible(true);
+                        break;
+                    case CHANGE_PASSWORD_ERROR:
+                        changeEmptyField_label.setVisible(false);
+                        changePasswordNotChang_label.setVisible(true);
+                        changeLogin_field.clear();
+                        changeNewPassword_field.clear();
+                        changeOldPassword_field.clear();
+                    case DELETE_ACCOUNT_OK:
+                        deleteErrorField_label.setVisible(false);
+                        deleteEmptyField_label.setVisible(false);
+                        deleteAccLogin_field.clear();
+                        deleteAccPassword_field.clear();
+                        deleteAccount_panel.setVisible(false);
+                        client.setVisible(false);
+                        regPanel.setVisible(false);
+                        authPanel.setVisible(true);
+                        incorrect_label.setVisible(false);
+                    case DELETE_ACCOUNT_ERROR:
+                        deleteEmptyField_label.setVisible(false);
+                        deleteErrorField_label.setVisible(true);
+                        deleteAccLogin_field.clear();
+                        deleteAccPassword_field.clear();
                 }
             }
         } catch (Exception e) {
@@ -389,7 +425,6 @@ public class ClientController implements Initializable {
     }
 
 
-
     public void authSingUp(ActionEvent actionEvent) {
         authLogin_field.clear();
         authPassword_field.clear();
@@ -402,13 +437,6 @@ public class ClientController implements Initializable {
 
     }
 
-    private void showContent(String info) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Oops");
-        alert.setHeaderText(info);
-        alert.showAndWait();
-
-    }
 
     public void registration(ActionEvent actionEvent) {
         if (regPassword_field1.getText().equals(regPassword_field2.getText()) &&
@@ -443,6 +471,7 @@ public class ClientController implements Initializable {
         changePswPanel.setVisible(true);
 
     }
+
 
     public void returnToClient(ActionEvent actionEvent) {
         changePswPanel.setVisible(false);
@@ -482,7 +511,7 @@ public class ClientController implements Initializable {
     }
 
 
-    public void navigationDisk(MouseEvent mouseEvent) {
+    public void navigationDisk(ActionEvent mouseEvent) {
         if (!listHards_box.getSelectionModel().isEmpty()) {
             baseDir = listHards_box.getSelectionModel().getSelectedItem().toPath();
             try {
@@ -499,8 +528,8 @@ public class ClientController implements Initializable {
     public void deleteItemsClient(ActionEvent actionEvent) {
         if (clientFiles.getSelectionModel().getSelectedItem() != null) {
             try {
-                Files.delete(baseDir.resolve(clientFiles.getSelectionModel()
-                        .getSelectedItem().getFileName()));
+                Cleaner.delete(new File(String.valueOf(baseDir.resolve(clientFiles.getSelectionModel()
+                        .getSelectedItem().getFileName()))));
                 fillClientView(getClientFiles());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -558,6 +587,45 @@ public class ClientController implements Initializable {
     public void visibleNamePanelServer(ActionEvent actionEvent) {
         nameFolderServer_panel.setVisible(true);
     }
+
+    public void changePassword(ActionEvent actionEvent) {
+        if (changeLogin_field.getText().isEmpty() || changeNewPassword_field.getText().isEmpty() || changeOldPassword_field.getText().isEmpty()) {
+            changeEmptyField_label.setVisible(true);
+            changeLogin_field.clear();
+            changeNewPassword_field.clear();
+            changeOldPassword_field.clear();
+        }
+        try {
+            os.writeObject(new ChangePassword(changeNewPassword_field.getText(), changeOldPassword_field.getText(), changeLogin_field.getText()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void deleteAccount(ActionEvent actionEvent) {
+
+        if (deleteAccLogin_field.getText().isEmpty() || deleteAccPassword_field.getText().isEmpty()) {
+            deleteEmptyField_label.setVisible(true);
+            deleteAccLogin_field.clear();
+            deleteAccPassword_field.clear();
+        }
+
+        try {
+            os.writeObject(new DeleteAccount(deleteAccLogin_field.getText(), deleteAccPassword_field.getText()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void onDeletePanel(ActionEvent actionEvent) {
+        client.setVisible(false);
+        deleteAccount_panel.setVisible(true);
+        deleteErrorField_label.setVisible(false);
+        deleteEmptyField_label.setVisible(false);
+    }
 }
+
 
 

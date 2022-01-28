@@ -151,12 +151,12 @@
                     </Button>
                 </children>
             </AnchorPane>
-            <PasswordField fx:id="changePassword_field1" alignment="CENTER" layoutX="228.0" layoutY="305.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter your new password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+            <PasswordField fx:id="changeOldPassword_field" alignment="CENTER" layoutX="228.0" layoutY="370.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter Old password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
                 <font>
                     <Font size="20.0" />
                 </font>
             </PasswordField>
-            <PasswordField fx:id="changePassword_field2" alignment="CENTER" layoutX="228.0" layoutY="386.0" prefHeight="47.0" prefWidth="282.0" promptText="Retry your new password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+            <PasswordField fx:id="changeNewPassword_field" alignment="CENTER" layoutX="228.0" layoutY="439.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter new password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
                 <font>
                     <Font size="20.0" />
                 </font>
@@ -166,13 +166,76 @@
                     <Font name="Georgia Italic" size="49.0" />
                 </font>
             </Label>
-            <Button fx:id="changeOK_button" ellipsisString="" layoutX="242.0" layoutY="475.0" mnemonicParsing="false" onAction="#singIn" prefHeight="104.0" prefWidth="254.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Change" textFill="#2e3348">
+            <Button fx:id="changeOK_button" ellipsisString="" layoutX="243.0" layoutY="512.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="104.0" prefWidth="254.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Change" textFill="#2e3348">
                 <font>
                     <Font name="Impact" size="53.0" />
                 </font>
             </Button>
+         <Label fx:id="changeEmptyField_label" layoutX="224.0" layoutY="265.0" text="The fields cannot be empty." textFill="RED" visible="false">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         <TextField fx:id="changeLogin_field" alignment="CENTER" layoutX="231.0" layoutY="299.0" prefHeight="47.0" prefWidth="276.0" promptText="Enter Login" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextField>
+         <Label fx:id="changePasswordNotChang_label" layoutX="174.0" layoutY="265.0" text="The password has not been changed." textFill="RED" visible="false">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
         </children>
     </AnchorPane>
+   <AnchorPane fx:id="deleteAccount_panel" prefHeight="645.0" prefWidth="753.0" style="-fx-background-color: #a3c4ff;" visible="false">
+      <children>
+         <Button fx:id="delete_button" ellipsisString="" layoutX="247.0" layoutY="491.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="104.0" prefWidth="254.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="DELETE" textFill="#2e3348">
+            <font>
+               <Font name="Impact" size="53.0" />
+            </font>
+         </Button>
+         <Label layoutX="212.0" layoutY="208.0" prefHeight="82.0" prefWidth="337.0" text="Delete Account">
+            <font>
+               <Font name="Georgia Italic" size="49.0" />
+            </font>
+         </Label>
+         <AnchorPane layoutX="-2.0" layoutY="-9.0" prefHeight="200.0" prefWidth="762.0" style="-fx-background-color: #2E3348;">
+            <children>
+               <Button fx:id="deleteReturn_button" layoutX="620.0" layoutY="14.0" mnemonicParsing="false" onAction="#returnToClient" prefHeight="47.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-border-color: #2E3348; -fx-border-radius: 10;" text="Return">
+                  <font>
+                     <Font name="Impact" size="24.0" />
+                  </font>
+               </Button>
+               <Label layoutX="144.0" layoutY="50.0" prefHeight="101.0" prefWidth="465.0" text="Perfect Cloud" textFill="#fafafa">
+                  <font>
+                     <Font name="Impact" size="82.0" />
+                  </font>
+               </Label>
+            </children>
+         </AnchorPane>
+         <Label fx:id="deleteEmptyField_label" layoutX="228.0" layoutY="281.0" text="The fields cannot be empty." textFill="RED" visible="false">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         <TextField fx:id="deleteAccLogin_field" alignment="CENTER" layoutX="236.0" layoutY="316.0" prefHeight="47.0" prefWidth="276.0" promptText="Enter Login" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextField>
+         <PasswordField fx:id="deleteAccPassword_field" alignment="CENTER" layoutX="233.0" layoutY="390.0" prefHeight="47.0" prefWidth="282.0" promptText="Enter Password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </PasswordField>
+         <Label fx:id="deleteErrorField_label" layoutX="192.0" layoutY="281.0" text="The account has not been deleted." textFill="RED" visible="false">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
 
 
     <AnchorPane fx:id="client" prefHeight="645.0" prefWidth="753.0" style="-fx-background-color: #a3c4ff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -222,6 +285,11 @@
             </Button>
             <AnchorPane layoutY="-3.0" prefHeight="47.0" prefWidth="753.0" style="-fx-background-color: #2E3348;">
                 <children>
+               <Button fx:id="changeDeleteAccount_button" layoutX="8.0" layoutY="5.0" mnemonicParsing="false" onAction="#onDeletePanel" prefHeight="47.0" prefWidth="174.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Delete Account" textFill="#2e3348">
+                  <font>
+                     <Font name="Impact" size="17.0" />
+                  </font>
+               </Button>
                     <Label layoutX="263.0" prefHeight="56.0" prefWidth="227.0" text="Perfect Cloud" textFill="#fafafa">
                         <font>
                             <Font name="Impact" size="40.0" />
@@ -229,7 +297,7 @@
                     </Label>
                     <Button fx:id="changePassword_button" ellipsisString="" layoutX="575.0" layoutY="5.0" mnemonicParsing="false" onAction="#changePass" prefHeight="46.0" prefWidth="157.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" text="Change password" textFill="#2e3348">
                         <font>
-                            <Font name="Impact" size="16.0" />
+                            <Font name="Impact" size="17.0" />
                         </font>
                     </Button>
                 </children>
@@ -261,7 +329,7 @@
                </ImageView>
             </graphic>
             </Button>
-         <ChoiceBox fx:id="listHards_box" accessibleText="..." layoutX="6.0" layoutY="121.0" onMouseClicked="#navigationDisk" prefHeight="25.0" prefWidth="42.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;" />
+         <ChoiceBox fx:id="listHards_box" accessibleText="..." layoutX="6.0" layoutY="121.0" onAction="#navigationDisk" prefHeight="25.0" prefWidth="42.0" style="-fx-border-color: #2E3348; -fx-border-radius: 5; -fx-background-color: #FAFAFA; -fx-background-radius: 5;" />
          <Button fx:id="deleteItemsClient_button" ellipsisString="" layoutX="285.0" layoutY="65.0" mnemonicParsing="false" onAction="#deleteItemsClient" prefHeight="46.0" prefWidth="49.0" style="-fx-background-radius: 20; -fx-border-color: #2E3348; -fx-border-radius: 20;" textFill="#2e3348">
             <font>
                <Font name="Impact" size="21.0" />

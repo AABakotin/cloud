@@ -4,19 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f0c3f5e-286a-46a2-9043-cb53927f09aa" name="Changes" comment="module">
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/createFolder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/CreateFolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteFile.java" afterDir="false" />
+    <list default="true" id="4f0c3f5e-286a-46a2-9043-cb53927f09aa" name="Changes" comment="Add Function">
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePasswordError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePasswordOK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Cleaner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccountError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccountOK.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/FileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/FileInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/png/folder.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/start.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/clients.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/clients.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/HandlerProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/NettyServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/StringMessageHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/UserNameService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/DataBaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/DataBaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AuthenticationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AuthenticationError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Commands.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,6 +92,9 @@
       <recent name="E:\Java\cloud-dec-2-2021\server\src\main\resources" />
       <recent name="E:\Java\cloud-dec-2-2021\client\src\main\resources\com.geekbrains.client" />
       <recent name="E:\Java\cloud-dec-2-2021\client\src\main\resources\png" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.geekbrains" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -169,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642847634402</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add Function">
+      <created>1643215754959</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1643215754959</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,7 +204,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="update" />
     <MESSAGE value="module" />
-    <option name="LAST_COMMIT_MESSAGE" value="module" />
+    <MESSAGE value="Add Function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
