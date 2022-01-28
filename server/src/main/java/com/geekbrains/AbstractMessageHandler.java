@@ -29,7 +29,6 @@ public class AbstractMessageHandler extends SimpleChannelInboundHandler<Abstract
     @Override
     protected void channelRead0(ChannelHandlerContext ctx,
                                 AbstractMessage message) throws Exception {
-        log.info("received: {}", message);
         switch (message.getMessageType()) {
             case FILE_REQUEST:
                 FileRequest req = (FileRequest) message;
@@ -46,13 +45,13 @@ public class AbstractMessageHandler extends SimpleChannelInboundHandler<Abstract
             case AUTHENTICATION:
                 Authentication ua = (Authentication) message;
                 if (DataBaseHandler.getLocation(ua.getLogin(), ua.getPassword()) == null) {
-                    log.debug("Not found users");
-                    ctx.writeAndFlush(new AuthenticationError("Not found user"));
+                    log.info("Not found users " + ua.getLogin());
+                    ctx.writeAndFlush(new AuthenticationError());
                 } else {
                     locationPath = Paths.get(currentPath + "/" + ua.getLogin());
                     ctx.writeAndFlush(new AuthenticationOK(locationPath.toString()));
                     ctx.writeAndFlush(new FilesList(locationPath));
-                    log.debug("User" + ua.getLogin() + " found");
+                    log.info("User" + ua.getLogin() + " found");
                 }
                 break;
             case REGISTRATION:
@@ -65,7 +64,7 @@ public class AbstractMessageHandler extends SimpleChannelInboundHandler<Abstract
                     ctx.writeAndFlush(new FilesList(Paths.get(Objects.requireNonNull(DataBaseHandler.getLocation(add.getLogin(), add.getPassword())))));
                 } else {
                     ctx.writeAndFlush(new RegistrationError("Login is already"));
-                    log.debug("Login is already");
+                    log.info("Login is already");
                 }
                 break;
             case FOLDER_REQUEST:
@@ -74,7 +73,7 @@ public class AbstractMessageHandler extends SimpleChannelInboundHandler<Abstract
                 break;
             case DELETE_FILE:
                 DeleteFile del = (DeleteFile) message;
-                Files.delete(locationPath.resolve(del.getName()));
+                Cleaner.delete(new File(String.valueOf(locationPath.resolve(del.getName()))));
                 ctx.writeAndFlush(new FilesList(locationPath));
                 break;
             case CREATE_FOLDER:
@@ -82,9 +81,27 @@ public class AbstractMessageHandler extends SimpleChannelInboundHandler<Abstract
                 new File(locationPath.toString() + "/" + cr.getName()).mkdirs();
                 ctx.writeAndFlush(new FilesList(locationPath));
                 break;
-
-//
-//                        USER_PASSWORD_CHANGE
+            case CHANGE_PASSWORD:
+                ChangePassword ch = (ChangePassword) message;
+                if (DataBaseHandler.ChangePass(ch.getNewPassword(), ch.getOldPassword(), ch.getLogin()) > 0) {
+                    ctx.writeAndFlush(new ChangePasswordOK());
+                    log.info("Password change");
+                } else {
+                    ctx.writeAndFlush(new ChangePasswordError());
+                    log.warn("Password not change");
+                }
+                break;
+            case DELETE_ACCOUNT:
+                DeleteAccount delAcc = (DeleteAccount) message;
+                if (DataBaseHandler.deleteUser(delAcc.getLogin(), delAcc.getPassword()) > 0) {
+                    File file = new File(currentPath + "/" + delAcc.getLogin());
+                    Cleaner.delete(file);
+                    log.info("Account has been delete");
+                    ctx.writeAndFlush(new DeleteAccountOK());
+                } else {
+                    ctx.writeAndFlush(new DeleteAccountError());
+                    log.error("Account not deleted");
+                }
         }
     }
 }

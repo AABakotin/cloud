@@ -6,15 +6,15 @@ public class Config {
 
     protected static final String CONNECTION = "jdbc:sqlite:db/clients.db";
 
-    protected static final String GET_LOCATION = "select location from clients where login = ? and password = ?;";
+    protected static final String GET_LOCATION = "select location from clients where login = ? and password = ?";
 
     protected static final String ADD_NEW_USER = "insert into clients (login, password, location) values (?, ?, ?);";
 
-    protected static final String DELETE_USER = "";
+    protected static final String DELETE_USER = "delete from clients where login = ? and password = ?";
 
     protected static final String GET_LOGIN = "select login from clients where login = ?";
 
-    protected static final String CHANGE_PASSWORD = "update clients set password = ? where login = ? and password = ?";
+    protected static final String CHANGE_PASSWORD = "update clients set password = ? where password = ? and login = ?";
 
     protected static final String CREATE_DB = "create table if not exists clients (id integer primary key autoincrement," +
             " login text unique not null, password text not null, location text not null);";

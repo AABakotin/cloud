@@ -13,7 +13,6 @@ public class DataBaseHandler extends Config {
     private static DataBaseHandler instance;
 
 
-
     public static void dbConnection() throws ClassNotFoundException, SQLException {
         Class.forName(DRIVER);
         dbConnection = DriverManager.getConnection(CONNECTION);
@@ -31,14 +30,6 @@ public class DataBaseHandler extends Config {
         }
     }
 
-
-    public static DataBaseHandler getInstance() {
-        if (instance != null) return instance;
-        instance = new DataBaseHandler();
-        return instance;
-    }
-
-
     private static void createDB() {
         try (Statement st = dbConnection.createStatement()) {
             st.execute(CREATE_DB);
@@ -46,9 +37,7 @@ public class DataBaseHandler extends Config {
         } catch (SQLException e) {
             logger.error("Creating db error");
         }
-
     }
-
 
     public static void addNewUser(String login, String password, String location) {
         try (PreparedStatement ps = dbConnection.prepareStatement(ADD_NEW_USER)) {
@@ -56,10 +45,11 @@ public class DataBaseHandler extends Config {
             ps.setString(2, password);
             ps.setString(3, location);
             ps.executeUpdate();
+            logger.info("Registration complete " + login);
+            logger.info("SQL Update");
         } catch (SQLException e) {
-            logger.info("User not add in db " + login);
+            logger.warn("User not add in db " + login);
         }
-
     }
 
     public static String getLogin(String login) {
@@ -91,22 +81,33 @@ public class DataBaseHandler extends Config {
     }
 
 
-    public static void ChangePass(String oldPassword, String newPassword) {
+    public static int ChangePass(String newPassword, String oldPassword, String login) {
         try (PreparedStatement ps = dbConnection.prepareStatement(CHANGE_PASSWORD)) {
             ps.setString(1, newPassword);
-            ps.setString(1, oldPassword);
+            ps.setString(2, oldPassword);
+            ps.setString(3, login);
+            if (ps.executeUpdate() > 0) {
+                logger.info("SQL Update");
+                return 1;
+            }
         } catch (SQLException e) {
             logger.error("Change password fail, more info -> " + e);
         }
+        return -1;
     }
 
-    public static void deleteUser(String login, String password) {
+    public static int deleteUser(String login, String password) {
         try (PreparedStatement ps = dbConnection.prepareStatement(DELETE_USER)) {
             ps.setString(1, login);
             ps.setString(2, password);
+            if (ps.executeUpdate() > 0){
+                logger.info("SQL Update");
+                return 1;
+            }
         } catch (SQLException e) {
             logger.error("Delete user fail, more info -> " + e);
         }
+        return -1;
     }
 }
 

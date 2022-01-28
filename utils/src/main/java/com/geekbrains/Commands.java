@@ -4,7 +4,6 @@ public enum Commands {
 
 
     FILE,
-    FILE_MESSAGE,
     FILE_REQUEST,
     FILES_LIST,
     FOLDER_REQUEST,
@@ -17,7 +16,10 @@ public enum Commands {
     CHANGE_PASSWORD_OK,
     CHANGE_PASSWORD_ERROR,
     DELETE_FILE,
-    CREATE_FOLDER
+    CREATE_FOLDER,
+    DELETE_ACCOUNT,
+    DELETE_ACCOUNT_OK,
+    DELETE_ACCOUNT_ERROR
 
 
 }
