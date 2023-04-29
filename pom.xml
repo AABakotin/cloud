@@ -8,10 +8,10 @@
     <artifactId>cloud-dec-2-2021</artifactId>
     <packaging>pom</packaging>
     <version>1</version>
+
     <modules>
         <module>client</module>
         <module>utils</module>
-        <module>Server</module>
         <module>server</module>
     </modules>
 
@@ -19,7 +19,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <lombok.version>1.18.22</lombok.version>
-        <netty.version>4.1.72.Final</netty.version>
+        <netty.version>4.1.86.Final</netty.version>
     </properties>
 
     <dependencies>
@@ -61,7 +61,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>1.2.9</version>
         </dependency>
 
     </dependencies>

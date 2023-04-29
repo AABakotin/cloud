@@ -5,26 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f0c3f5e-286a-46a2-9043-cb53927f09aa" name="Changes" comment="Add Function">
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePasswordError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePasswordOK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Cleaner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccountError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccountOK.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/geekbrains/start.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/clients.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/clients.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/HandlerProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/NettyServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/StringMessageHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/UserNameService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/DataBaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/db/DataBaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AuthenticationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AuthenticationError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,23 +44,25 @@
     </option>
   </component>
   <component name="ProjectId" id="23mHvcXHGAy7JudnaoMxUtCSvcL" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src/main/java/com/geekbrains" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.25243506" />
-    <property name="settings.editor.selected.configurable" value="build.tools" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.geekbrains.model" />

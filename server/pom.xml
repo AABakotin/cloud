@@ -13,12 +13,6 @@
     <dependencies>
         <dependency>
             <groupId>com.geekbrains</groupId>
-            <artifactId>cloud-dec-2-2021</artifactId>
-            <version>1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.geekbrains</groupId>
             <artifactId>utils</artifactId>
             <version>1</version>
             <scope>compile</scope>
