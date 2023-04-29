@@ -1,6 +1,9 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
 
-public class DeleteAccount implements AbstractMessage{
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
+
+public class DeleteAccount implements AbstractMessage {
 
 
     public String getLogin() {

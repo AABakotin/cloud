@@ -1,4 +1,8 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
+
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
+import lombok.Data;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,8 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import lombok.Data;
 
 @Data
 public class FilesList implements AbstractMessage {

@@ -1,6 +1,9 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
 
-public class AuthenticationOK implements AbstractMessage{
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
+
+public class AuthenticationOK implements AbstractMessage {
 
     private final String locationPath;
 

@@ -1,6 +1,9 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
 
-public class CreateFolder implements AbstractMessage{
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
+
+public class CreateFolder implements AbstractMessage {
 
     private String name;
 

@@ -1,5 +1,7 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
 
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
 import lombok.Data;
 
 import java.io.IOException;

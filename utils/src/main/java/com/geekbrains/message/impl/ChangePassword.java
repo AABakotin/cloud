@@ -1,4 +1,7 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
+
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
 
 public class ChangePassword implements AbstractMessage {
 

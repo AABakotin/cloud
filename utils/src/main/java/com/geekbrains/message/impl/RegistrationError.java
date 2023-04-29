@@ -1,6 +1,9 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
 
-public class RegistrationError implements AbstractMessage{
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
+
+public class RegistrationError implements AbstractMessage {
 
     public RegistrationError(String info) {
         this.info = info;

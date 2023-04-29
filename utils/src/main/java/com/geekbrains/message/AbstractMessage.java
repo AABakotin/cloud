@@ -1,4 +1,6 @@
-package com.geekbrains;
+package com.geekbrains.message;
+
+import com.geekbrains.Commands;
 
 import java.io.Serializable;
 

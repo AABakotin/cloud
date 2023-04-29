@@ -2,6 +2,8 @@ package com.geekbrains.controllers;
 
 
 import com.geekbrains.*;
+import com.geekbrains.message.*;
+import com.geekbrains.message.impl.*;
 import io.netty.handler.codec.serialization.ObjectDecoderInputStream;
 import io.netty.handler.codec.serialization.ObjectEncoderOutputStream;
 import javafx.application.Platform;
@@ -164,23 +166,21 @@ public class ClientController implements Initializable {
         sizeFilesServer.setCellValueFactory(e -> new SimpleObjectProperty<>(e.getValue().
                 length()));
         sizeFilesServer.setPrefWidth(100);
-        sizeFilesServer.setCellFactory(column -> {
-            return new TableCell<File, Long>() {
-                @Override
-                protected void updateItem(Long item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (item == null || empty) {
-                        setText(null);
-                        setStyle("");
-                    } else {
-                        String text = String.format("%,d bytes", item);
-                        if (item == -1) {
-                            text = "folder";
-                        }
-                        setText(text);
+        sizeFilesServer.setCellFactory(column -> new TableCell<File, Long>() {
+            @Override
+            protected void updateItem(Long item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    String text = String.format("%,d bytes", item);
+                    if (item == -1) {
+                        text = "folder";
                     }
+                    setText(text);
                 }
-            };
+            }
         });
 
         serverFiles.getColumns().
@@ -191,22 +191,20 @@ public class ClientController implements Initializable {
                 e.getValue()));
         modFilesServer.setPrefWidth(120);
         modFilesServer.setCellFactory(column ->
-        {
-            return new TableCell<File, File>() {
-                @Override
-                protected void updateItem(File item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (item == null || empty) {
-                        setText(null);
-                        setStyle("");
-                    } else {
-                        Date modif = new Date(item.lastModified());
-                        String modifFile = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(modif);
-                        setText(modifFile);
+                new TableCell<File, File>() {
+                    @Override
+                    protected void updateItem(File item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item == null || empty) {
+                            setText(null);
+                            setStyle("");
+                        } else {
+                            Date modif = new Date(item.lastModified());
+                            String modifFile = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(modif);
+                            setText(modifFile);
+                        }
                     }
-                }
-            };
-        });
+                });
 
         serverFiles.getColumns().
                 add(modFilesServer);

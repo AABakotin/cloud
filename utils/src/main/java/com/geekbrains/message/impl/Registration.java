@@ -1,6 +1,9 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
 
-public class Registration implements AbstractMessage{
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
+
+public class Registration implements AbstractMessage {
 
     String login;
     String password;

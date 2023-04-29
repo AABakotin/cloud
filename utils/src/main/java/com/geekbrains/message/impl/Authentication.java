@@ -1,9 +1,12 @@
-package com.geekbrains;
+package com.geekbrains.message.impl;
 
-public class Authentication implements AbstractMessage{
+import com.geekbrains.Commands;
+import com.geekbrains.message.AbstractMessage;
 
-String login;
-String password;
+public class Authentication implements AbstractMessage {
+
+    String login;
+    String password;
 
     public String getLogin() {
         return login;
