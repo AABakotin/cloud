@@ -270,7 +270,7 @@ public class ClientController implements Initializable {
             Socket socket = new Socket("localhost", 8189);
             os = new ObjectEncoderOutputStream(socket.getOutputStream());
             is = new ObjectDecoderInputStream(socket.getInputStream());
-            Thread thread = new Thread(this::read);
+            Thread thread = new Thread(this::listener);
             thread.setDaemon(true);
             thread.start();
         } catch (IOException e) {
@@ -282,87 +282,103 @@ public class ClientController implements Initializable {
     }
 
 
-    private void read() {
+    private void listener() {
         try {
             while (true) {
                 AbstractMessage msg = (AbstractMessage) is.readObject();
                 switch (msg.getMessageType()) {
-                    case FILE:
-                        FileMessage fileMessage = (FileMessage) msg;
-                        Files.write(
-                                baseDir.resolve(fileMessage.getFileName()),
-                                fileMessage.getBytes()
-                        );
-                        Platform.runLater(() -> {
-                            try {
-                                fillClientView(getClientFiles());
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        });
-                        break;
-                    case FILES_LIST:
-                        FilesList files = (FilesList) msg;
-                        Platform.runLater(() ->
-                                fillServerView(files.getFiles()));
-
-                        break;
-                    case AUTHENTICATION_ERROR:
-                        incorrect_label.setVisible(true);
-                        authLogin_field.clear();
-                        authPassword_field.clear();
-                        break;
-                    case AUTHENTICATION_OK:
-                        AuthenticationOK authenticationOK = (AuthenticationOK) msg;
-                        authPanel.setVisible(false);
-                        client.setVisible(true);
-                        locationPath = get(authenticationOK.getLocationPath());
-                        break;
-                    case REGISTRATION_ERROR:
-                        RegistrationError error = (RegistrationError) msg;
-                        loginEmpty_label.setVisible(false);
-                        passwordMatch_label.setVisible(false);
-                        loginAlready_label.setVisible(true);
-                        loginAlready_label.setText(error.getInfo());
-                        regPassword_field1.clear();
-                        regPassword_field2.clear();
-                        regLogin_field.clear();
-                        break;
-                    case CHANGE_PASSWORD_OK:
-                        changeEmptyField_label.setVisible(false);
-                        changePasswordNotChang_label.setVisible(false);
-                        changeLogin_field.clear();
-                        changeNewPassword_field.clear();
-                        changeOldPassword_field.clear();
-                        changePswPanel.setVisible(false);
-                        client.setVisible(true);
-                        break;
-                    case CHANGE_PASSWORD_ERROR:
-                        changeEmptyField_label.setVisible(false);
-                        changePasswordNotChang_label.setVisible(true);
-                        changeLogin_field.clear();
-                        changeNewPassword_field.clear();
-                        changeOldPassword_field.clear();
-                    case DELETE_ACCOUNT_OK:
-                        deleteErrorField_label.setVisible(false);
-                        deleteEmptyField_label.setVisible(false);
-                        deleteAccLogin_field.clear();
-                        deleteAccPassword_field.clear();
-                        deleteAccount_panel.setVisible(false);
-                        client.setVisible(false);
-                        regPanel.setVisible(false);
-                        authPanel.setVisible(true);
-                        incorrect_label.setVisible(false);
-                    case DELETE_ACCOUNT_ERROR:
-                        deleteEmptyField_label.setVisible(false);
-                        deleteErrorField_label.setVisible(true);
-                        deleteAccLogin_field.clear();
-                        deleteAccPassword_field.clear();
+                    case FILE : commandFile((FileMessage) msg); break;
+                    case FILES_LIST : commandFilesList((FilesList) msg);break;
+                    case AUTHENTICATION_ERROR : commandAuthenticationError();break;
+                    case AUTHENTICATION_OK : commandAuthenticationOk((AuthenticationOK) msg);break;
+                    case REGISTRATION_ERROR : commandRegistrationError((RegistrationError) msg);break;
+                    case CHANGE_PASSWORD_OK : commandChangePasswordOk();break;
+                    case CHANGE_PASSWORD_ERROR : commandChangePasswordError();break;
+                    case DELETE_ACCOUNT_OK : commandDeleteAccountOk();break;
+                    case DELETE_ACCOUNT_ERROR : commandDeleteAccountError();break;
                 }
             }
         } catch (Exception e) {
             System.err.println("ERROR ABSTRACT MESSAGE: ------>>>" + e + "<<<------");
         }
+    }
+
+    private void commandDeleteAccountError() {
+        deleteEmptyField_label.setVisible(false);
+        deleteErrorField_label.setVisible(true);
+        deleteAccLogin_field.clear();
+        deleteAccPassword_field.clear();
+    }
+
+    private void commandDeleteAccountOk() {
+        deleteErrorField_label.setVisible(false);
+        deleteEmptyField_label.setVisible(false);
+        deleteAccLogin_field.clear();
+        deleteAccPassword_field.clear();
+        deleteAccount_panel.setVisible(false);
+        client.setVisible(false);
+        regPanel.setVisible(false);
+        authPanel.setVisible(true);
+        incorrect_label.setVisible(false);
+    }
+
+    private void commandChangePasswordError() {
+        changeEmptyField_label.setVisible(false);
+        changePasswordNotChang_label.setVisible(true);
+        changeLogin_field.clear();
+        changeNewPassword_field.clear();
+        changeOldPassword_field.clear();
+    }
+
+    private void commandChangePasswordOk() {
+        changeEmptyField_label.setVisible(false);
+        changePasswordNotChang_label.setVisible(false);
+        changeLogin_field.clear();
+        changeNewPassword_field.clear();
+        changeOldPassword_field.clear();
+        changePswPanel.setVisible(false);
+        client.setVisible(true);
+    }
+
+    private void commandRegistrationError(RegistrationError msg) {
+        loginEmpty_label.setVisible(false);
+        passwordMatch_label.setVisible(false);
+        loginAlready_label.setVisible(true);
+        loginAlready_label.setText(msg.getInfo());
+        regPassword_field1.clear();
+        regPassword_field2.clear();
+        regLogin_field.clear();
+    }
+
+    private void commandAuthenticationOk(AuthenticationOK msg) {
+        authPanel.setVisible(false);
+        client.setVisible(true);
+        locationPath = get(msg.getLocationPath());
+    }
+
+    private void commandAuthenticationError() {
+        incorrect_label.setVisible(true);
+        authLogin_field.clear();
+        authPassword_field.clear();
+    }
+
+    private void commandFilesList(FilesList msg) {
+        Platform.runLater(() ->
+                fillServerView(msg.getFiles()));
+    }
+
+    private void commandFile(FileMessage msg) throws IOException {
+        Files.write(
+                baseDir.resolve(msg.getFileName()),
+                msg.getBytes()
+        );
+        Platform.runLater(() -> {
+            try {
+                fillClientView(getClientFiles());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 

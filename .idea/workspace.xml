@@ -4,27 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f0c3f5e-286a-46a2-9043-cb53927f09aa" name="Changes" comment="delete dependency">
+    <list default="true" id="4f0c3f5e-286a-46a2-9043-cb53927f09aa" name="Changes" comment="utils -&gt; message">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/geekbrains/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/geekbrains/AbstractMessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AbstractMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/AbstractMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AuthenticationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/AuthenticationError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/AuthenticationOK.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/AuthenticationOK.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/ChangePassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePasswordError.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/ChangePasswordError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/ChangePasswordOK.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/ChangePasswordOK.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/CreateFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/CreateFolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/DeleteAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccountError.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/DeleteAccountError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteAccountOK.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/DeleteAccountOK.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/DeleteFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/DeleteFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/FileMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/FileMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/FileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/FileRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/FilesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/FilesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/RegistrationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/RegistrationError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/RequestFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/geekbrains/message/impl/RequestFolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/utils/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682777309594</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="utils -&gt; message">
+      <created>1682777971053</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682777971053</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,7 +210,8 @@
     <MESSAGE value="module" />
     <MESSAGE value="Add Function" />
     <MESSAGE value="delete dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete dependency" />
+    <MESSAGE value="utils -&gt; message" />
+    <option name="LAST_COMMIT_MESSAGE" value="utils -&gt; message" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
